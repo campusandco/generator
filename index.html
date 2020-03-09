@@ -1,0 +1,599 @@
+
+<html>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/aql2nbr.css">
+    <style>
+        * {
+            font-family: Calibri;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #dddddd;
+        }
+
+        .container,
+        canvas {
+            width: 600px;
+            margin: 25px auto;
+            display: block;
+        }
+
+        .preview {
+            padding: 15px 0px 25px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        #scapture {
+            width: 600px;
+            height: 200px;
+            background: #ffffff;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        #sindicator {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 150px;
+            font-size: 50px;
+            color: #ffffff;
+            font-family: montserrat, sans-serif;
+        }
+
+        .band1 {
+            background: #c1272d;
+        }
+
+        .band2 {
+            background: #f15a24;
+        }
+
+        .band3 {
+            background: #fbb03b;
+        }
+
+        .band4 {
+            background: #d9e021;
+        }
+
+        .band5 {
+            background: #39b54a;
+        }
+
+        .band6 {
+            background: #006837;
+        }
+
+        .value {
+            width: 200px;
+            text-align: center;
+        }
+
+        #form td {
+            width: 300px;
+            text-align: center;
+        }
+
+        #target,
+        #sales {
+            font-size: 36px;
+            font-family: montserrat, sans-serif;
+        }
+
+        .values {
+            margin: auto;
+            display: block;
+            width: 250px;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .values:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0px 0px 0px 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn {
+            margin: 15px;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .btn:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        canvas {
+            display: none;
+        }
+
+        .tab-list {
+            margin: auto;
+            width: 600px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .tab-button.btn {
+            margin: 0;
+            color: #495057;
+            background-color: #ffffff;
+            border-radius: 0;
+            border: 0px solid #ddd;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .tab-button.btn.left {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .tab-button.btn.right {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .tab-button.btn.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .smcontainer {
+            margin: 10px;
+            width: 400px;
+            height: 400px;
+            background: #eee;
+            font-family: montserrat, sans-serif;
+            color: #ffffff;
+            text-align: center;
+            background-size: cover;
+        }
+
+        .sidebar {
+            height: 400px;
+            background: rgba(0, 0, 0, .85);
+            padding: 25px 10px;
+            box-sizing: border-box;
+        }
+
+        .sidebar.half {
+            margin-left: 200px;
+            width: 200px;
+        }
+
+        .sidebar.full {
+            width: 400px;
+        }
+
+        .hide {
+            display: none!important;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 159px;
+            margin: auto;
+            display: block;
+        }
+
+        .opening {
+            width: 180px;
+            height: 55px;
+            margin: 20px auto;
+            font-weight: 500;
+            font-size: 21px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            font-family: montserrat, sans-serif;
+        }
+
+        .target {
+            margin: auto;
+        }
+
+        .targeta {
+            width: 150px;
+            height: 20px;
+            margin: auto;
+            font-family: montserrat, sans-serif;
+        }
+
+        .targetcircle {
+            height: 110px;
+            width: 110px;
+            border-radius: 50%;
+            margin: 10px auto;
+            font-family: montserrat, sans-serif;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 110px;
+            font-size: 32px;
+            color: #ffffff;
+            font-family: montserrat, sans-serif;
+        }
+
+        .targetb {
+            width: 170px;
+            height: 40px;
+            margin: auto;
+            font-family: montserrat, sans-serif;
+        }
+
+        .text {
+            width: 100%;
+            height: 180px;
+        }
+        .text-container {
+            margin: auto;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-list">
+        <a id="tabb-click" href="#" class="tab-button btn tab right">WhatsApp Opening Times</a>
+    </div>
+    <div id="tabb" class="container tab">
+        <table width="600px">
+            <tr>
+                <td width="420px">
+                    <div id="mcapture" class="smcontainer" style="background: url('assets/labourwait.jpg')">
+                        <div class="sidebar half">
+                            <div class="logo">
+                                <img src="assets/mlogo.png" />
+                            </div>
+                            <div id="open" class="opening">Open Tonight!</div>
+                            <div class="target">
+                                <div class="targeta">Sales This Month:</div>
+                                <div class="targetcircle band1" id="mindicator">0%</div>
+                                <div class="targetb">Of Our<br><span id="ta" class="targetb"></span> Target!</div>
+                            </div>
+                            <div class="text hide">
+                                <div id="text-container" class="text-container">This is sample text with <b>bold text</b> and <i>italic text</i>. A line break is <br></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <form id="sm-image">
+                        <h3>Image Type</h3>
+                        <select id="type" class="values jtype">
+                            <option>--- Select ---</option>
+                            <option value="1">Opening Times</option>
+                            <option value="2">Target Progress</option>
+                            <option value="3">Text - Half Width</option>
+                            <option value="4">Text - Full Width</option>
+                        </select>
+                        <h3>Background Image</h3>
+                        <select id="image" class="values jbackground">
+                            <option>--- Select ---</option>
+                            <option value="2">Alcohol on Shelf</option>
+                            <option value="3">Facultad de Derechos</option>
+                            <option value="4">Golden Gate at Night</option>
+                            <option value="1">Labour & Wait</option>
+                            <option value="5">Neon Trails</option>
+                            <option value="6">Perito Moreno 1</option>
+                            <option value="7">Perito Moreno 2</option>
+                            <option value="8">Ushuaian Road</option>
+                            <option value="c">Custom Option</option>
+                        </select>
+                        <h3>Opening Time</h3>
+                        <select id="time" class="values jtime">
+                            <option>--- Select ---</option>
+                            <option value="1">Open Today!</option>
+                            <option value="2">Open Today! 2:40 to 3:10pm</option>
+                            <option value="6">Open Today! After the Meeting</option>
+                            <option value="3">Open Tonight!</option>
+                            <option value="7">Open Tonight! After the Meeting</option>
+                            <option value="4">Open Tomorrow!</option>
+                            <option value="15">Open Tomorrow! 8:15 to 10:30am</option>
+                            <option value="5">Open Tomorrow! 8:30 to 10:30am</option>
+                            <option value="9">Open Tomorrow! 9:00 to 11:00am</option>
+                            <option value="8">Open Tomorrow! After the Meeting</option>
+                            <option value="10">Open Wednesday!</option>
+                            <option value="11">Open Friday!</option>
+                            <option value="12">Open Friday! After the Meeting</option>
+                            <option value="13">Open Saturday!</option>
+                            <option value="14">Open Saturday! After the Meeting</option>
+                        </select>
+                        <div class="target-inputs">
+                        <h3>Sales So Far</h3>
+                        <input class="values jsales" id="minput_sales" placeholder="Sales">
+                        <h3>Target This Month</h3>
+                        <input class="values jsales" id="minput_target" placeholder="Target">
+                        </div>
+                        <div class="text-inputs hide">
+                        <h3>Text</h3>
+                        <textarea id="text"
+                            class="values">This is sample text with <b>bold text</b> and <i>italic text</i>. A line break is <br></textarea>
+                        </div>
+                        <input class="btn" id="generate" type="button" value="Generate Image"
+                            onclick="generate_media_image();" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+        };
+        $("#taba-click").click(function () {
+            $(".tab-button").removeClass("active");
+            $(".container.tab").addClass("hide");
+            $("#taba-click").addClass("active");
+            $("#taba").removeClass("hide");
+        });
+        $("#tabb-click").click(function () {
+            $(".tab-button").removeClass("active");
+            $(".container.tab").addClass("hide");
+            $("#tabb-click").addClass("active");
+            $("#tabb").removeClass("hide");
+        });
+        $(".jtype").change(function () {
+            var type = $('#type').val();
+            if (type == 1) {
+                $(".sidebar").removeClass("full half").addClass("half");
+                $(".target").addClass("hide");
+                $(".text").addClass("hide");
+                $(".target-inputs").addClass("hide");
+                $(".text-inputs").addClass("hide");
+            } else if (type == 2) {
+                $(".sidebar").removeClass("full half").addClass("half");
+                $(".target").addClass("hide").removeClass("hide");
+                $(".text").addClass("hide");
+                $(".target-inputs").addClass("hide").removeClass("hide");
+                $(".text-inputs").addClass("hide");
+            } else if (type == 3) {
+                $(".sidebar").removeClass("full half").addClass("half");
+                $(".target").addClass("hide");
+                $(".text").addClass("hide").removeClass("hide");
+                $(".target-inputs").addClass("hide");
+                $(".text-inputs").addClass("hide").removeClass("hide");
+            } else if (type == 4) {
+                $(".sidebar").removeClass("full half").addClass("full");
+                $(".target").addClass("hide");
+                $(".text").addClass("hide").removeClass("hide");
+                $(".target-inputs").addClass("hide");
+                $(".text-inputs").addClass("hide").removeClass("hide");
+            }
+        });
+        $("#text").change(function() {
+            var text = $("#text").val();
+            $("#text-container").html(text);
+        });
+        $(".jsales").change(function () {
+            var target = $('#input_target').val();
+            var sales = $('#input_sales').val();
+            var dsales = $('#input_sales').val();
+            var mtarget = $('#minput_target').val();
+            var msales = $('#minput_sales').val();
+            if (sales < 1) {
+                sales = 1;
+            }
+            if (target < 1) {
+                target = 1;
+            }
+            if (msales < 1) {
+                msales = 1;
+            }
+            if (mtarget < 1) {
+                mtarget = 1;
+            }
+            var result = sales / target * 100;
+            var result = Number((result).toFixed(0));
+            var mresult = msales / mtarget * 100;
+            var mresult = Number((mresult).toFixed(0));
+            $("#sindicator").html(result + "%");
+            $("#mindicator").html(mresult + "%");
+            $("#ta").html("$" + formatNumber(mtarget));
+            if (result < 25) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band1");
+            } else if (result < 50 && result > 24) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band2");
+            } else if (result < 75 && result > 49) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band3");
+            } else if (result < 100 && result > 74) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band4");
+            } else if (result < 125 && result > 99) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band5");
+            } else if (result > 124) {
+                $("#sindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band6");
+            };
+            if (mresult < 25) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band1");
+            } else if (mresult < 50 && mresult > 24) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band2");
+            } else if (mresult < 75 && mresult > 49) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band3");
+            } else if (mresult < 100 && mresult > 74) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band4");
+            } else if (mresult < 125 && mresult > 99) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band5");
+            } else if (mresult > 124) {
+                $("#mindicator").removeClass("band1 band2 band3 band4 band5 band6").addClass("band6");
+            };
+            $("#target").html("$" + formatNumber(target));
+            $("#sales").html("$" + formatNumber(sales));
+            
+            if (dsales < 1) {
+                $("#sales").html("$0");
+            };
+        });
+        $(".jtime").change(function () {
+            var time = $('#time').val();
+            if (time == 1) {
+                $("#open").html("Open Today!");
+            } else if (time == 2) {
+                $("#open").html(
+                    "Open Today!<br><span style='font-size: 18px; font-style: italic;'>2:40 to 3:10pm</span>"
+                );
+            } else if (time == 3) {
+                $("#open").html("Open Tonight!");
+            } else if (time == 4) {
+                $("#open").html("Open Tomorrow!");
+            } else if (time == 5) {
+                $("#open").html(
+                    "Open Tomorrow!<br><span style='font-size: 18px; font-style: italic;'>8:30 to 10:30am</span>"
+                );
+            } else if (time == 6) {
+                $("#open").html(
+                    "Open Today!<br><span style='font-size: 18px; font-style: italic;'>After the Meeting</span>"
+                );
+            } else if (time == 7) {
+                $("#open").html(
+                    "Open Tonight!<br><span style='font-size: 18px; font-style: italic;'>After the Meeting</span>"
+                );
+            } else if (time == 8) {
+                $("#open").html(
+                    "Open Tomorrow!<br><span style='font-size: 18px; font-style: italic;'>After the Meeting</span>"
+                );
+            } else if (time == 9) {
+                $("#open").html(
+                    "Open Tomorrow!<br><span style='font-size: 18px; font-style: italic;'>9:00 to 11:00am</span>"
+                );
+            } else if (time == 10) {
+                $("#open").html(
+                    "Open Wednesday!"
+                );
+            } else if (time == 11) {
+                $("#open").html(
+                    "Open Friday!"
+                );
+            } else if (time == 12) {
+                $("#open").html(
+                    "Open Friday!<br><span style='font-size: 18px; font-style: italic;'>After the Meeting</span>"
+                );
+            } else if (time == 13) {
+                $("#open").html(
+                    "Open Saturday!"
+                );
+            } else if (time == 14) {
+                $("#open").html(
+                    "Open Saturday!<br><span style='font-size: 18px; font-style: italic;'>After the Meeting</span>"
+                );
+            } else if (time == 15) {
+                $("#open").html(
+                    "Open Tomorrow!<br><span style='font-size: 18px; font-style: italic;'>8:15 to 10:30am</span>"
+                );
+            };
+        });
+
+        $(".jbackground").change(function () {
+            var image = $('#image').val();
+            if (image == 1) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/labourwait.jpg)');
+            } else if (image == 2) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/alcoholonshelf.jpg)');
+            } else if (image == 3) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/facultaddederecho.jpg)');
+            } else if (image == 4) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/goldengate.jpg)');
+            } else if (image == 5) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/neontrails.jpg)');
+            } else if (image == 6) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/peritomoreno1.jpg)');
+            } else if (image == 7) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/peritomoreno2.jpg)');
+            } else if (image == 8) {
+                $("#mcapture.smcontainer").css('background-image', 'url(assets/ushuaiaroad.jpg)');
+            } else if (image == 'c') {
+                var pic = prompt('Enter image url', 'http://nutricorn.co.uk/campusco/assets/labourwait.jpg');
+                $("#mcapture.smcontainer").css('background', 'url(' + pic + ')');
+                $("#mcapture.smcontainer").css('background-size', 'cover');
+                $("#mcapture.smcontainer").css('background-position', '50% 50%');
+            };
+        });
+
+        function generate_sales_image() {
+            html2canvas(document.querySelector("#scapture")).then(canvas => {
+                document.body.appendChild(canvas)
+            });
+            setTimeout(function () {
+                document.getElementsByTagName("canvas")[0].setAttribute("id", "salescanvas");
+                var stepa = document.getElementById("salescanvas");
+                stepb = stepa.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                var link = document.createElement("a");
+                link.download = "Sales " + today + ".png";
+                link.href = stepb;
+                link.click();
+            }, 1000);
+        };
+
+        function generate_media_image() {
+            html2canvas(document.querySelector("#mcapture")).then(canvas => {
+                document.body.appendChild(canvas)
+            });
+            setTimeout(function () {
+                document.getElementsByTagName("canvas")[0].setAttribute("id", "mediacanvas");
+                var stepa = document.getElementById("mediacanvas");
+                stepb = stepa.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                var link = document.createElement("a");
+                link.download = "CampusCo WhatsApp " + today + ".png";
+                link.href = stepb;
+                link.click();
+            }, 1000);
+        };
+    </script>
+    <script type="text/javascript">
+        window._mfq = window._mfq || [];
+        (function () {
+            var mf = document.createElement("script");
+            mf.type = "text/javascript";
+            mf.async = true;
+            mf.src = "//cdn.mouseflow.com/projects/4778cf13-39cd-4c7a-9d46-ce0820ccb96b.js";
+            document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+    </script>
+</body>
+
+</html>
