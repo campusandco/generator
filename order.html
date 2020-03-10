@@ -55,6 +55,15 @@ $(document).on('click', '.rmv-ba', function() {
   delete cartba[code];
   refreshCartba();
 });
+$( "button" ).click(function() {
+  $("#sumbit-modal").modal('toggle');
+  window.setTimeout(function(){
+  $("#test").addClass('bg-success').removeClass('bg-warning progress-bar-animated');
+  $("h5.modal-title").html('Success!');
+  $("p#message").toggle();
+  $(".modal-footer").toggle();
+  }, 2000);
+});
 
 
     }
@@ -126,6 +135,25 @@ $(document).on('click', '.rmv-ba', function() {
   <h3>Cart</h3>
   <hr>
   <table class="cart-ba"></table>
+  <a href="#" id="submit-ba" class="btn btn-primary">Submit Order</a>
+</div>
+<div class="modal fade" id="sumbit-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Processing</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div id="test" class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%"></div>
+        </div>
+        <p id="message" style="display: none; margin-top: 10px;">Thank you for your order! It has been sent to our team and they will be in touch shortly.</p>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>
