@@ -35,6 +35,22 @@ body {
 h2 {
     margin-bottom: 1.5rem;
 }
+
+.choice a {
+    margin: 5px;
+}
+
+.cart-ba td:nth-child(1) {
+    width: 70%;
+}
+
+.cart-ba td:nth-child(2) {
+    width: 20%;
+}
+
+.cart-ba td:nth-child(3) {
+    width: 10%;
+}
   </style>
 
   <!-- TODO: Missing CoffeeScript 2 -->
@@ -159,7 +175,12 @@ $( "#submit-ba" ).click(function() {
   </form>
   <h3>Cart</h3>
   <hr>
-  <table class="cart-ba"></table>
+  <table class="cart-ba">
+    <tr>
+      <td>Product</td>
+      <td>Quantity</td>
+      <td></td>
+  </table>
   <a href="#" id="submit-ba" class="btn btn-primary">Submit Order</a>
 </div>
 <div class="modal fade" id="sumbit-modal" role="dialog">
