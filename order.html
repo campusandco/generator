@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +54,7 @@ $(document).on('click', '.rmv-ba', function() {
   delete cartba[code];
   refreshCartba();
 });
-$( "button" ).click(function() {
+$( "#submit-ba" ).click(function() {
   $("#sumbit-modal").modal('toggle');
   window.setTimeout(function(){
   $("#test").addClass('bg-success').removeClass('bg-warning progress-bar-animated');
