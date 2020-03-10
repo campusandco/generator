@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js"></script>
+      <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+    window.onload=function(){
+      
+$("#ba-button").on("click", function() {
+  $(".choice").toggle();
+  $(".form-ba").toggle();
+});
+var cartba = [];
+
+function refreshCartba() {
+  $('.cart-ba').empty();
+  for (var i in cartba) {
+    var a = cartba[i].name;
+    var b = cartba[i].quantity;
+    $('.cart-ba').append('<tr><td>' + a + '</td><td>' + b + '</td><td code="' + i + '"><a class="btn-sm btn-danger btn-icon-split rmv-ba" href="#">Remove</a></td>');
+  }
+}
+$(document).on('click', '#add-ba', function() {
+  var name = $('#product-ba').val();
+  var qty = $('#qty-ba').val();
+  if (name) {
+    cartba.push({
+      name: name,
+      quantity: qty
+    });
+  } else {
+    alert('Error');
+  }
+  refreshCartba()
+  $('#product-ba').prop("selectedIndex", 0);
+  $('#qty-ba').val('');
+});
+$(document).on('click', '.rmv-ba', function() {
+  var code = $(this).parent('td').attr('code');
+  delete cartba[code];
+  refreshCartba();
+});
+
+
+    }
+
+  //]]></script>
+
+</head>
+<body>
+    <div class="container choice">
+  <h2>Choose your store</h2>
+  <button class="btn btn-primary">Bahia Blanca</button>
+  <button id="ba-button" class="btn btn-primary">Buenos Aires</button>
+  <button class="btn btn-primary">Rosario</button>
+</div>
+<div class="container form-ba" style="display: none;">
+  <h2>{{Name}} Order Form</h2>
+  <form>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Delivery Address">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="date" class="form-control" placeholder="Choose Delivery Date">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <select id="product-ba" class="form-control">
+            <option>Product 1</option>
+            <option>Product 2</option>
+            <option>Product 3</option>
+            <option>Product 4</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <input id="qty-ba" type="tel" class="form-control" placeholder="Quantity">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <button id="add-ba" class="btn btn-primary">Add Product</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <h3>Cart</h3>
+  <hr>
+  <table class="cart-ba"></table>
+</div>
+</body>
+</html>
